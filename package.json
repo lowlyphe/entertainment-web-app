@@ -1,0 +1,12 @@
+{
+  "name": "entertainment-web-app",
+  "version": "1.0.0",
+  "description": "Full stack Web app for entertainment search based on FrontendMentor Challenge",
+  "main": "script.js",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./output.css",
+    "watch": "npx tailwindcss -i ./input.css -o ./output.css --watch"
+  },
+  "author": "lowlyphe",
+  "license": "ISC"
+}
