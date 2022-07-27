@@ -8,5 +8,8 @@
     "watch": "npx tailwindcss -i ./input.css -o ./output.css --watch"
   },
   "author": "lowlyphe",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
 }
