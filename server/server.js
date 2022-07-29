@@ -1,7 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 require("dotenv").config();
 const fs = require('fs/promises');
+
+app.use(express.static('../client')) ;
+app.use(cors());
+
+const corsOptions = {
+    origin: '*'
+}
 
 // app.get('/shows', (req,res) => {
 //     fs.readFile('data.json', 'utf-8', (data) => {
@@ -12,25 +20,12 @@ const fs = require('fs/promises');
 // })
 
 // read data
-app.get('/index/trending', (req,res) => (
-    fs.readFile('server/data.json', 'utf-8').then((data) => {
-        let trending = [];
-        data = JSON.parse(data)
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].isTrending) {
-                trending.push(data[i])
-            }
-        }
-        res.setHeader('Access-Control-Allow-Origin', '*')
-        res.send(trending)
-        
-    }).catch((e) => {
-        console.log(e.stack)
-    })
+app.get('/api/trending', (req,res) => (
+    res.set('Access-Control-Allow-Origin', '*').send('good')
 ))
 
 
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log('You are now connected')
+    console.log('You are now connected on port')
 })

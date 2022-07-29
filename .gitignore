@@ -17,3 +17,4 @@
 
 /entertainment-web-app
 node_modules
+.env
