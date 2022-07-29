@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "watch": "npx tailwindcss -i ./input.css -o ./client/output.css --watch",
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "author": "lowlyphe",
   "license": "ISC",
