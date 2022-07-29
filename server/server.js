@@ -13,12 +13,13 @@ const corsOptions = {
 }
 
 
-const POOL = new Pool ({
+const Pool = new Pool ({
     connectionString: DATABSASE_URL,
     ssl: {
         rejectUnauthorized: false
     }
 })
+
 
 
 // app.get('/shows', (req,res) => {
