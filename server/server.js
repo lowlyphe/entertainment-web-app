@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 require("dotenv").config();
 const fs = require('fs/promises');
+const pg = require('pg');
 
 app.use(express.static('../client')) ;
 app.use(cors());
@@ -10,6 +11,15 @@ app.use(cors());
 const corsOptions = {
     origin: '*'
 }
+
+
+const POOL = new Pool ({
+    connectionString: DATABSASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+})
+
 
 // app.get('/shows', (req,res) => {
 //     fs.readFile('data.json', 'utf-8', (data) => {
