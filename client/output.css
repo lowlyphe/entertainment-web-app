@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.7 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -584,6 +584,10 @@ video {
   margin-left: 1rem;
 }
 
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -592,6 +596,10 @@ video {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .w-screen {
@@ -604,6 +612,10 @@ video {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-40 {
+  width: 10rem;
 }
 
 .items-center {
@@ -649,6 +661,20 @@ video {
 .bg-darkGray {
   --tw-bg-opacity: 1;
   background-color: rgb(22 29 47 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+
+.bg-\[url\(\'\/assets\/thumbnails\/beyond-earth\/trending\/large\.jpg\'\)\] {
+  background-image: url('/assets/thumbnails/beyond-earth/trending/large.jpg');
+}
+
+.bg-\[url\(\'\/assets\/thumbnails\/bottom-gear\/trending\/large\.jpg\'\)\] {
+  background-image: url('/assets/thumbnails/bottom-gear/trending/large.jpg');
 }
 
 .fill-white {
