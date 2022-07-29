@@ -13,8 +13,8 @@ const corsOptions = {
 }
 
 
-const Pool = new Pool ({
-    connectionString: DATABSASE_URL,
+const pool = new pg.Pool ({
+    connectionString: process.env.DATABSASE_URL,
     ssl: {
         rejectUnauthorized: false
     }
