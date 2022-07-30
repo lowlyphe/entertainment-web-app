@@ -562,8 +562,32 @@ video {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .top-0 {
   top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.-z-10 {
+  z-index: -10;
 }
 
 .mx-4 {
@@ -619,6 +643,12 @@ video {
   height: 2.5rem;
 }
 
+.max-h-fit {
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -643,6 +673,12 @@ video {
   width: 50%;
 }
 
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -663,6 +699,10 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-x-auto {
@@ -700,8 +740,17 @@ video {
   background-color: rgb(22 29 47 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'assets\/thumbnails\/beyond-earth\/trending\/large\.jpg\'\)\] {
-  background-image: url('assets/thumbnails/beyond-earth/trending/large.jpg');
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'\$\{bgUrl\}\'\)\] {
+  background-image: url('${bgUrl}');
+}
+
+.bg-\[url\(\'\$\{thumbnail\}\'\)\] {
+  background-image: url('${thumbnail}');
 }
 
 .bg-cover {
@@ -845,6 +894,10 @@ video {
 
   .md\:h-7 {
     height: 1.75rem;
+  }
+
+  .md\:h-96 {
+    height: 24rem;
   }
 
   .md\:w-20 {
