@@ -7,8 +7,9 @@ const $recommended = $('.recommended')
 const $movies = $('.movies')
 const $tv = $('.tv')
 const $all = $('.all')
-const $bookmarkContainer = $('.bookmarkContainer')
-const $bookmark = $('.bookmark')
+const $bookmarkbtn = $('.bookmarkbtn')
+const $search = $('.search')
+const $searchbtn = $('.searchbtn')
 
 //all page 
 $all.click(() => {
@@ -115,7 +116,6 @@ $(document).ready(() => {
       let title = data[i].title;
       let year = data[i].year;
       let isBookmarked = data[i].isbookmarked;
-      console.log(isBookmarked)
       if (isBookmarked) {
         svg = full;
       } else {
@@ -150,3 +150,56 @@ $(document).ready(() => {
 //  <div class="absolute top-0 right-0 z-10 w-10 h-10 md:w-7 md:h-7 bg-black rounded-full opacity-75 my-2 ml-auto mr-4 p-1 bookmarkContainer"><img class="bookmark pl-1 pt-1" src=${svg} /></div>
 
 // update bookmark
+
+
+$bookmarkbtn.click(() => {
+  $main.empty();
+  $main.addClass('flex flex-col')
+  $text = $('<p></p>').addClass('text-white text-2xl font-thin mb-4').text('Bookmarks')
+  $main.append($text)
+  $movieContainer = $('<div></div>').addClass('grid gap-4 grid-cols-4 grid-rows-6').appendTo($main)
+  $.get('/api/bookmark', (data) => {
+    console.log(data)
+
+    for (let i = 0; i < data.length; i++) {
+      let category = data[i].category;
+      let rating = data[i].rating;
+      let thumbnail = data[i].thumbnail.slice(1);
+      let title = data[i].title;
+      let year = data[i].year;
+      let isBookmarked = data[i].isbookmarked;
+      if (isBookmarked) {
+        svg = full;
+      } else {
+        svg = empty;
+      }
+      $recommendedShow = $('<div></div>').addClass('flex fex-col relative').html(`<div class="flex flex-col">
+      <div>
+        <img
+          class="rounded-md hover:brightness-75"
+          src="${thumbnail}"
+          alt=""
+        />
+      </div>
+      <div class="flex justify-start text-white font-extralight">
+        <span class="w-full"> ${year} &#x2022; ${category} &#x2022; ${rating} </span>
+      </div>
+      <div>
+        <h3 class="text-white">${title}</h3>
+      </div>
+    </div>`).appendTo($movieContainer)
+    let $bookmarkContainer = $('<div></div>').addClass('absolute top-0 right-0 z-10 w-10 h-10 md:w-7 md:h-7 bg-black rounded-full opacity-75 my-2 ml-auto mr-4 p-1').appendTo($recommendedShow);
+    let $bookmark = $(`<img class="bookmark pl-1 pt-1" src=${svg} />`).appendTo($bookmarkContainer).click(() => {
+      console.log($bookmark.src)
+      $bookmark.attr('src', full)
+    })
+    }
+  })
+
+})
+
+
+$searchbtn.click(() => {
+  let search = $search.val();
+  
+})

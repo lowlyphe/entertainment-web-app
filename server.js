@@ -52,11 +52,26 @@ app.get('/api/tv', (req,res) => {
     })
 })
 
+app.get('/api/bookmark', (req,res) => {
+    pool.query('SELECT * FROM movies WHERE isbookmarked = true').then((data) => {
+        res.status(200).type('application/json').send(data.rows)
+    })
+})
+
 // update bookmark
 app.patch('/api/bookmark/:title', (req,res) => {
     let title = req.params.title;
     pool.query(`UPDATE movies SET isBookmarked = NOT isBookmarked WHERE title LIKE '${title}'`)
     res.status(200).type('application/json').send('ok')
+})
+
+//search functionality
+app.get('/api/search/:input', (req,res) => {
+    let input = req.params.input;
+    pool.query(`SELECT * FROM movies WHERE title LIKE '%${input}%'`).then((data) => {
+        res.status(200).type('application/json').send(data.rows)
+    })
+    
 })
 
 
