@@ -4,9 +4,10 @@
   "description": "Full stack Web app for entertainment search based on FrontendMentor Challenge",
   "main": "script.js",
   "scripts": {
-    "prod": "node server.js",
+    "prod": "nodemon server.js",
     "watch": "npx tailwindcss -i ./input.css -o ./client/output.css --watch",
-    "start": "concurrently \"npm run prod\" \"npm run watch\""
+    "start": "node server.js",
+    "dev": "concurrently \"npm run prod\" \"npm run watch\""
   },
   "author": "lowlyphe",
   "license": "ISC",

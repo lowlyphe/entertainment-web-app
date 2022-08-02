@@ -9,11 +9,11 @@ CREATE TABLE movies(
    isBookmarked BOOLEAN  NOT NULL,
    isTrending   BOOLEAN  NOT NULL
 );
-INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Beyond Earth','./assets/thumbnails/beyond-earth/trending/large.jpg',2019,'Movie','PG',false,true);
-INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Bottom Gear','./assets/thumbnails/bottom-gear/trending/large.jpg',2021,'Movie','PG',false,true);
-INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Undiscovered Cities','./assets/thumbnails/undiscovered-cities/trending/large.jpg',2019,'TV Series','E',false,true);
-INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('1998','./assets/thumbnails/1998/trending/large.jpg',2021,'Movie','18+',false,true);
-INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Dark Side of the Moon','./assets/thumbnails/dark-side-of-the-moon/trending/large.jpg',2018,'TV Series','PG',true,true);
+INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Beyond Earth','./assets/thumbnails/beyond-earth/regular/large.jpg',2019,'Movie','PG',false,true);
+INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Bottom Gear','./assets/thumbnails/bottom-gear/regular/large.jpg',2021,'Movie','PG',false,true);
+INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Undiscovered Cities','./assets/thumbnails/undiscovered-cities/regular/large.jpg',2019,'TV Series','E',false,true);
+INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('1998','./assets/thumbnails/1998/regular/large.jpg',2021,'Movie','18+',false,true);
+INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Dark Side of the Moon','./assets/thumbnails/dark-side-of-the-moon/regular/large.jpg',2018,'TV Series','PG',true,true);
 INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('The Great Lands','./assets/thumbnails/the-great-lands/regular/large.jpg',2019,'Movie','E',false,false);
 INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('The Diary','./assets/thumbnails/the-diary/regular/large.jpg',2019,'TV Series','PG',false,false);
 INSERT INTO movies(title,thumbnail,year,category,rating,isBookmarked,isTrending) VALUES ('Earths Untouched','./assets/thumbnails/earths-untouched/regular/large.jpg',2017,'Movie','18+',true,false);
