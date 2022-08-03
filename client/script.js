@@ -67,6 +67,7 @@ const buildPage = (data) => {
     let $bookmarkContainer = $('<div></div>').addClass('absolute top-0 right-0 z-10 w-10 h-10 md:w-7 md:h-7 bg-black rounded-full opacity-75 my-2 ml-auto mr-4 p-1').appendTo($show);
     let $bookmark = $(`<img class="bookmark pl-1 pt-1" src=${svg} />`).appendTo($bookmarkContainer).click(() => {
       $.get(`/api/bookmark/${id}`, (data) => {
+        console.log(data)
         if (data[0].isbookmarked) {
           $.ajax({
             type: "PATCH",

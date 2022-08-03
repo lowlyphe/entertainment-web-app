@@ -92,7 +92,7 @@ app.patch('/api/bookmark/:id', (req,res) => {
 app.get('/api/search/:input', (req,res) => {
     let input = req.params.input;
     console.log(input)
-    pool.query(`SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2 || ' ' || summary) @@ to_tsquery('%${input}%');`).then((data) => {
+    pool.query(`SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2 || ' ' || summary) @@ plainto_tsquery('${input}');`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
     
