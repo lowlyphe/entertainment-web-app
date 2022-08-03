@@ -1,4 +1,4 @@
-# Entertainment web app solution
+# Entertainment web app
 
 ## Table of contents
 
@@ -51,8 +51,6 @@ This is my first fullstack app and took some time to work out the kinks. I used 
 ### Continued development
 
 I would like to improve the database search functionality by incorporating psql trigrams to include some search fuzziness. I would also like to learn more about auth flow and implement it into the project.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
