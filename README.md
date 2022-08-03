@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Live URL: [Heroku Live App](hhttps://entertainment-web-app-lowlyphe.herokuapp.com/)
+- Live URL: [Heroku Live App](https://entertainment-web-app-lowlyphe.herokuapp.com/)
 
 ## My process
 
