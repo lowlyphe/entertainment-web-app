@@ -68,7 +68,8 @@ app.patch('/api/bookmark/:title', (req,res) => {
 //search functionality
 app.get('/api/search/:input', (req,res) => {
     let input = req.params.input;
-    pool.query(`SELECT * FROM movies WHERE title LIKE '%${input}%'`).then((data) => {
+    console.log(input)
+    pool.query(`SELECT * FROM movies WHERE title ILIKE '%${input}%'`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
     

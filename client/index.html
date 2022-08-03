@@ -92,14 +92,16 @@
     </nav>
     <!-- search bar -->
     <div class="flex mx-4 ml-36 my-4 md:ml-32">
-      <img src="assets/icon-search.svg" alt="" class="searchbtn" />
+      <button class="searchbtn">
+        <img src="assets/icon-search.svg" alt="" />
+      </button>
       <input
         type="search"
         class="bg-black font-light w-80 outline-none text-white ml-4 focus:border-b-2 focus:border-grayishBlue search"
         placeholder="Search for movies or TV series"
       />
     </div>
-    <main class="mt-16 md:mt-8 md:ml-32">
+    <main class="mt-16 md:mt-8 md:ml-32 max-w-screen-xl">
       <!-- Display trending shows -->
       <h1
         class="text-2xl text-white font-light ml-4 md:ml-0 pb-4 trending-text"

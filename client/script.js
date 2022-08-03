@@ -201,5 +201,32 @@ $bookmarkbtn.click(() => {
 
 $searchbtn.click(() => {
   let search = $search.val();
-  
+  $main.empty();
+  const $searchBox = $('<div></div>').addClass('grid gap-4 grid-cols-4 grid-rows-6').appendTo($main)
+  $.get(`/api/search/${search}`, (data) => {
+    console.log(data)
+    for (let i = 0; i < data.length; i++) {
+      let category = data[i].category;
+      let rating = data[i].rating;
+      let thumbnail = data[i].thumbnail.slice(1);
+      let title = data[i].title;
+      let year = data[i].year;
+      $('<div></div>').addClass('flex fex-col').html(`<div class="flex flex-col">
+      <div>
+        <img
+          class="rounded-md hover:brightness-75"
+          src="${thumbnail}"
+          alt=""
+        />
+      </div>
+      <div class="flex justify-start text-white font-extralight">
+        <span class="w-full"> ${year} &#x2022; ${category} &#x2022; ${rating} </span>
+      </div>
+      <div>
+        <h3 class="text-white">${title}</h3>
+      </div>
+    </div>`).appendTo($searchBox)
+    }
+    
+  })
 })
