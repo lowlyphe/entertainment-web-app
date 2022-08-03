@@ -17,6 +17,7 @@ app.use((req,res, next) => {
 
 
 
+
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 
 const pool = new pg.Pool({
@@ -33,20 +34,34 @@ app.get('/api/trending', (req,res) => (
 ))
 
 app.get('/api/recommended', (req,res) => {
-    pool.query('SELECT * FROM movies').then((data) => {
+    pool.query('SELECT * FROM movies ORDER BY ratingaverage DESC').then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
 })
 
-app.get('/api/movies', (req,res) => {
-    const query = "SELECT * FROM movies where category like 'Movie'"
+app.get('/api/drama', (req,res) => {
+    const query = "SELECT * FROM movies where genres0 LIKE 'Drama' OR genres1 LIKE 'DRAMA' OR 'genres2' LIKE 'Drama' ORDER BY ratingaverage DESC"
     pool.query(`${query}`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
 })
 
-app.get('/api/tv', (req,res) => {
-    const query = "SELECT * FROM movies where category like 'TV%'"
+app.get('/api/comedy', (req,res) => {
+    const query = "SELECT * FROM movies where genres0 LIKE 'Comedy' OR genres1 LIKE 'Comedy' OR 'genres2' LIKE 'Comedy' ORDER BY ratingaverage DESC"
+    pool.query(`${query}`).then((data) => {
+        res.status(200).type('application/json').send(data.rows)
+    })
+})
+
+app.get('/api/action', (req,res) => {
+    const query = "SELECT * FROM movies where genres0 LIKE 'Action' OR genres1 LIKE 'Action' OR 'genres2' LIKE 'Action' ORDER BY ratingaverage DESC"
+    pool.query(`${query}`).then((data) => {
+        res.status(200).type('application/json').send(data.rows)
+    })
+})
+
+app.get('/api/scifi', (req,res) => {
+    const query = "SELECT * FROM movies where genres0 LIKE 'Science-Fiction' OR genres1 LIKE 'Science-Fiction' OR 'genres2' LIKE 'Science-Fiction' ORDER BY ratingaverage DESC"
     pool.query(`${query}`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
@@ -59,9 +74,17 @@ app.get('/api/bookmark', (req,res) => {
 })
 
 // update bookmark
-app.patch('/api/bookmark/:title', (req,res) => {
-    let title = req.params.title;
-    pool.query(`UPDATE movies SET isBookmarked = NOT isBookmarked WHERE title LIKE '${title}'`)
+app.get('/api/bookmark/:id', (req,res) => {
+    let id = req.params.id;
+    console.log(req.params.id)
+    pool.query(`SELECT * FROM movies WHERE id = ${id}`).then((data) => {
+        res.status(200).type('application/json').send(data.rows)
+    })
+})
+
+app.patch('/api/bookmark/:id', (req,res) => {
+    let id = req.params.id;
+    pool.query(`UPDATE movies SET isBookmarked = NOT isBookmarked WHERE id = ${id}`)
     res.status(200).type('application/json').send('ok')
 })
 
@@ -69,7 +92,7 @@ app.patch('/api/bookmark/:title', (req,res) => {
 app.get('/api/search/:input', (req,res) => {
     let input = req.params.input;
     console.log(input)
-    pool.query(`SELECT * FROM movies WHERE title ILIKE '%${input}%'`).then((data) => {
+    pool.query(`SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2 || ' ' || summary) @@ to_tsquery('%${input}%');`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
     
