@@ -1,6 +1,4 @@
-# Frontend Mentor - Entertainment web app solution
-
-This is a solution to the [Entertainment web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X). Frontend Mentor challenges help you improve your coding skills by building realistic project.
+# Entertainment web app solution
 
 ## Table of contents
 
