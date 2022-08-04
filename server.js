@@ -40,28 +40,28 @@ app.get('/api/recommended', (req,res) => {
 })
 
 app.get('/api/drama', (req,res) => {
-    const query = "SELECT * FROM movies where genres0 LIKE 'Drama' OR genres1 LIKE 'DRAMA' OR 'genres2' LIKE 'Drama' ORDER BY ratingaverage DESC"
+    const query = "SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2) @@ to_tsquery('Drama') ORDER BY ratingaverage DESC"
     pool.query(`${query}`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
 })
 
 app.get('/api/comedy', (req,res) => {
-    const query = "SELECT * FROM movies where genres0 LIKE 'Comedy' OR genres1 LIKE 'Comedy' OR 'genres2' LIKE 'Comedy' ORDER BY ratingaverage DESC"
+    const query = "SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2) @@ to_tsquery('Comedy') ORDER BY ratingaverage DESC"
     pool.query(`${query}`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
 })
 
 app.get('/api/action', (req,res) => {
-    const query = "SELECT * FROM movies where genres0 LIKE 'Action' OR genres1 LIKE 'Action' OR 'genres2' LIKE 'Action' ORDER BY ratingaverage DESC"
+    const query = "SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2) @@ to_tsquery('Action') ORDER BY ratingaverage DESC"
     pool.query(`${query}`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
 })
 
 app.get('/api/scifi', (req,res) => {
-    const query = "SELECT * FROM movies where genres0 LIKE 'Science-Fiction' OR genres1 LIKE 'Science-Fiction' OR 'genres2' LIKE 'Science-Fiction' ORDER BY ratingaverage DESC"
+    const query = "SELECT * FROM movies WHERE to_tsvector(name || ' ' || genres0 || ' ' || genres1 || ' ' || genres2) @@ to_tsquery('Science-Fiction') ORDER BY ratingaverage DESC"
     pool.query(`${query}`).then((data) => {
         res.status(200).type('application/json').send(data.rows)
     })
